@@ -1,0 +1,30 @@
+<!-- modifier keys:
+Event properties:
+
+shiftKey: Shift
+altKey: Alt (or Opt for Mac)
+ctrlKey: Ctrl
+metaKey: Cmd for Mac
+They are true if the corresponding key was pressed during the event.
+
+For instance, the button below only works on Alt+Shift+click: -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button">Alt+Shift+Click on me!</button>
+
+    <script>
+      button.onclick = function (event) {
+        if (event.altKey && event.shiftKey) {
+          alert('Hooray!');
+        }
+      };
+    </script>
+  </body>
+</html>
