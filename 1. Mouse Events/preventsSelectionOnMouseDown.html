@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- normal double click effect -->
+    <span ondblclick="alert('dblclick')">Double-click me</span>
+    <br />
+
+    <!-- cancelling double click effect and text selection on mousedown and drag-->
+    Before...
+    <b ondblclick="alert('Click!')" onmousedown="return false">
+      Double-click me
+    </b>
+    ...After
+  </body>
+</html>
