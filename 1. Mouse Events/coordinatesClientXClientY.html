@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        padding: 20px 100px;
+        justify-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      onmousemove="this.value=event.clientX+':'+event.clientY"
+      value="Mouse over me: cek value rata kanan kiri atau ga"
+    />
+  </body>
+</html>
+
+<!-- input {
+        padding: 30px;
+        /* display: flex; ga kepake di <input> coz gada children */
+        /* justify-content: center; harus display flex (ada children) */
+        text-align: center; /* untuk mensejajarkan text pakai ini */
+        /* align-content: center; hanya bisa klo flex-wrap aktif & ada banyak baris flex */
+        /* align-items: center; hanya untuk flex container  */
+        /* align-self: center; berfungsi apabil <input> adl child dari flex container */
+        /* justify-items: center; harusnya hanya bekerja di GRID atau flex*/
+      } -->
