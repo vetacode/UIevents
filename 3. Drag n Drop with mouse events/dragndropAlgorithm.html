@@ -1,0 +1,52 @@
+<!-- The basic Drag’n’Drop algorithm looks like this:
+
+On mousedown – prepare the element for moving, if needed (maybe create a clone of it, add a class to it or whatever).
+Then on mousemove move it by changing left/top with position:absolute.
+On mouseup – perform all actions related to finishing the drag’n’drop. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      ball.onmousedown = function (event) {
+        // (1) prepare to moving: make absolute and on top by z-index
+        ball.style.position = 'absolute';
+        ball.style.zIndex = 1000;
+
+        // move it out of any current parents directly into body
+        // to make it positioned relative to the body
+        document.body.append(ball);
+
+        // centers the ball at (pageX, pageY) coordinates
+        function moveAt(pageX, pageY) {
+          ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+          ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+        }
+
+        // move our absolutely positioned ball under the pointer
+        moveAt(event.pageX, event.pageY);
+
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
+
+        // (2) move the ball on mousemove
+        document.addEventListener('mousemove', onMouseMove);
+
+        // (3) drop the ball, remove unneeded handlers
+        ball.onmouseup = function () {
+          document.removeEventListener('mousemove', onMouseMove);
+          ball.onmouseup = null;
+        };
+      };
+      ball.ondragstart = function () {
+        return false;
+      };
+    </script>
+  </body>
+</html>
