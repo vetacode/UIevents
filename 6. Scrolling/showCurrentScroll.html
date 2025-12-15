@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        min-height: 200vh;
+        border: 1px solid black;
+      }
+
+      #showScroll {
+        font-size: 30px;
+        /* align-items: center; */
+        justify-self: center;
+        /* align-content: center; */
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 500px">
+      <h1>Show Current Scroll</h1>
+    </div>
+
+    <div id="showScroll"></div>
+    <script>
+      window.addEventListener('scroll', function () {
+        document.getElementById('showScroll').innerHTML =
+          window.pageYOffset + 'px';
+      });
+    </script>
+  </body>
+</html>
