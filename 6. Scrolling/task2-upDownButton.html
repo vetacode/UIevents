@@ -1,0 +1,78 @@
+<!-- Up/down button
+importance: 5
+Create a “to the top” button to help with page scrolling.
+
+It should work like this:
+
+While the page is not scrolled down at least for the window height – it’s invisible.
+When the page is scrolled down more than the window height – there appears an “upwards” arrow in the left-top corner. If the page is scrolled back, it disappears.
+When the arrow is clicked, the page scrolls to the top. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      #matrix {
+        width: 400px;
+        margin: auto;
+        overflow: auto;
+        text-align: justify;
+      }
+
+      #arrowTop {
+        height: 39px;
+        width: 34px;
+        color: green;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        border: 1px solid green;
+        background-color: rgb(162, 244, 162);
+        border-radius: 10px;
+        align-content: center;
+        /* align-items: center; */
+        text-align: center;
+      }
+
+      #arrowTop:hover {
+        background-color: rgb(217, 255, 140);
+        transition: all 0.3s;
+      }
+
+      #arrowTop::before {
+        content: '▲';
+      }
+    </style>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div id="matrix">
+      <script>
+        for (let i = 0; i < 4000; i++) document.writeln(i);
+      </script>
+    </div>
+
+    <div id="arrowTop" hidden></div>
+
+    <script>
+      arrowTop.onclick = function () {
+        window.scrollTo({ top: 0, left: pageXOffset, behavior: 'smooth' });
+        // after scrollTo, there will be a "scroll" event, so the arrow will hide automatically
+      };
+
+      window.addEventListener('scroll', function () {
+        arrowTop.hidden = pageYOffset < document.documentElement.clientHeight;
+      });
+    </script>
+  </body>
+</html>
