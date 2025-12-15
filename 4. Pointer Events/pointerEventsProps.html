@@ -1,0 +1,16 @@
+<!-- Pointer events have the same properties as mouse events, such as clientX/Y, target, etc., plus some others:
+
+1. pointerId – the unique identifier of the pointer causing the event. Browser-generated. Allows us to handle multiple pointers, such as a touchscreen with stylus and multi-touch (examples will follow).
+
+2. pointerType – the pointing device type. Must be a string, one of: “mouse”, “pen” or “touch”. We can use this property to react differently on various pointer types. 
+
+3. isPrimary – is true for the primary pointer (the first finger in multi-touch).
+
+
+Some pointer devices measure contact area and pressure, e.g. for a finger on the touchscreen, there are additional properties for that:
+
+1. width – the width of the area where the pointer (e.g. a finger) touches the device. Where unsupported, e.g. for a mouse, it’s always 1.
+2. height – the height of the area where the pointer touches the device. Where unsupported, it’s always 1.
+3. pressure – the pressure of the pointer tip, in range from 0 to 1. For devices that don’t support pressure must be either 0.5 (pressed) or 0.
+4. tangentialPressure – the normalized tangential pressure.
+5. tiltX, tiltY, twist – pen-specific properties that describe how the pen is positioned relative to the surface. -->
