@@ -41,7 +41,7 @@
 
     shiftX = event.clientX - thumb.getBoundingClientRect().left;
 
-    thumb.setPointerCapture(event.pointerId);
+    thumb.setPointerCapture(event.pointerId); //it prevents from side effects on other elements while thumb dragging
 
     thumb.onpointermove = onThumbMove;
 
@@ -72,3 +72,11 @@
 
   thumb.ondragstart = () => false;
 </script>
+
+<!-- EXTRA NOTES
+Pointer capturing events
+
+There are two events associated with pointer capturing:
+
+1. gotpointercapture fires when an element uses setPointerCapture to enable capturing.
+2. lostpointercapture fires when the capture is released: either explicitly with   releasePointerCapture call, or automatically on pointerup/pointercancel. -->
